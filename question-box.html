@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>質問箱 | 〇〇王</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./question.box.css">
+
+</head>
+<body>
+
+  <div class="screen">
+    <h1 class="title">質問箱</h1>
+
+    <!-- 質問一覧 -->
+    <ul id="question-list" class="question-list"></ul>
+
+    <!-- 追加フォーム -->
+    <div class="question-add">
+      <input
+        id="new-question-input"
+        type="text"
+        placeholder="新しい質問を入力"
+      >
+      <button id="add-question-btn">追加</button>
+    </div>
+
+    <button onclick="location.href='index.html'">戻る</button>
+  </div>
+  <script src="questions.js"></script>
+  <script src="question-box.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+/* ==============================
+   全画面背景（トップ専用）
+============================== */
+
+.has-bg::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background-image: url("./backgroud.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    z-index: -1;
+}

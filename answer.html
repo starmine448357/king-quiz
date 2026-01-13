@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>回答する | 〇〇王</title>
+  <link rel="stylesheet" href="./answer.css">
+  <link rel="stylesheet" href="./background2.css">
+</head>
+<body class="has-bg">
+
+<div id="name-screen" class="screen">
+  <h2>あなたの呼び名は？</h2>
+  <input id="nickname-input" type="text" placeholder="例：たろう">
+
+  <h3>何問やる？</h3>
+
+  <div class="counter">
+    <button id="decrease-btn">-</button>
+    <span id="question-count">10</span>
+    <button id="increase-btn">+</button>
+  </div>
+
+  <button id="save-name-btn">スタート</button>
+</div>
+
+  <!-- 質問画面 -->
+  <div id="question-screen" class="screen" style="display:none;">
+    <h2 id="question-title"></h2>
+    <p id="question-text"></p>
+    <input id="answer-input" type="text" placeholder="答えを入力">
+    <button id="next-question-btn">次へ</button>
+  </div>
+
+  <script src="questions.js"></script>
+  <script src="answer.js"></script>
+</body>
+</html>

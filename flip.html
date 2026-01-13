@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no"
+  >
+  <title>フリップ | 〇〇王</title>
+
+  <style>
+    /* ==============================
+       共通
+    ============================== */
+
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: sans-serif;
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+    /* ==============================
+       フリップ画面全体
+    ============================== */
+
+    .flip-body {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    /* ==============================
+       ヘッダー
+    ============================== */
+
+    .flip-header {
+      height: 64px;
+      padding: 0 12px;
+      box-sizing: border-box;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      background: #f5f5f5;
+      border-bottom: 2px solid #ddd;
+    }
+
+    /* ==============================
+       正解数カウンター
+    ============================== */
+
+    .counter {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .counter p {
+      margin: 0;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .counter span {
+      font-size: 20px;
+      font-weight: bold;
+      min-width: 28px;
+      text-align: center;
+    }
+
+    .counter button {
+      width: 34px;
+      height: 34px;
+
+      font-size: 18px;
+      font-weight: bold;
+
+      border-radius: 50%;
+      border: none;
+
+      background: linear-gradient(#ffd36a, #ffb800);
+      color: #5a2e00;
+
+      box-shadow: 0 3px 0 #b56a00;
+      cursor: pointer;
+    }
+
+    .counter button:active {
+      transform: translateY(3px);
+      box-shadow: none;
+    }
+
+    /* ==============================
+       右側アクション
+    ============================== */
+
+    .flip-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .flip-actions button {
+      padding: 8px 12px;
+      font-size: 14px;
+      font-weight: bold;
+
+      border-radius: 8px;
+      border: none;
+
+      background: linear-gradient(#ffd36a, #ffb800);
+      color: #5a2e00;
+
+      box-shadow: 0 3px 0 #b56a00;
+      cursor: pointer;
+    }
+
+    .flip-actions button:active {
+      transform: translateY(3px);
+      box-shadow: none;
+    }
+
+    /* ==============================
+       キャンバス
+    ============================== */
+
+    #flip-canvas {
+      flex: 1;
+      width: 100vw;
+      background: #ffffff;
+
+      touch-action: none;
+    }
+  </style>
+</head>
+
+<body class="flip-body">
+
+  <!-- ヘッダー -->
+  <div class="flip-header">
+    <div class="counter">
+      <button id="count-minus">-</button>
+      <p>正解数</p>
+      <span id="count-number">0</span>
+      <button id="count-plus">+</button>
+    </div>
+
+    <div class="flip-actions">
+      <button id="clear-canvas">消す</button>
+      <button onclick="location.href='index.html'">戻る</button>
+    </div>
+  </div>
+
+  <!-- キャンバス -->
+  <canvas id="flip-canvas"></canvas>
+
+  <script src="flip.js"></script>
+</body>
+</html>

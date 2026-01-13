@@ -1,0 +1,184 @@
+/* ==============================
+   質問箱画面 専用CSS
+============================== */
+
+/* body は style.css の中央寄せを解除 */
+body {
+    display: block;
+}
+
+/* ==============================
+   画面全体
+============================== */
+
+.screen {
+    min-height: 100vh;
+    box-sizing: border-box;
+
+    padding-top: 12vh;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 24px;
+
+    text-align: center;
+    color: #222;
+}
+
+/* ==============================
+   タイトル
+============================== */
+
+.title {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+/* ==============================
+   質問一覧
+============================== */
+
+.question-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 24px;
+
+    width: 100%;
+    max-width: 360px;
+
+    max-height: 45vh;
+    overflow-y: auto;
+}
+
+/* 質問1件 */
+.question-item {
+    background: #fff;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* 削除ボタンなど（あれば） */
+.question-item button {
+    font-size: 12px;
+    padding: 6px 10px;
+
+    border-radius: 6px;
+    border: none;
+
+    background: #ddd;
+    color: #333;
+}
+
+/* ==============================
+   質問追加フォーム
+============================== */
+
+.question-add {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+
+    margin-bottom: 24px;
+}
+
+/* 入力欄 */
+#new-question-input {
+    flex: 1;
+    max-width: 220px;
+
+    padding: 12px;
+    font-size: 14px;
+
+    border-radius: 8px;
+    border: 2px solid #999;
+    outline: none;
+}
+
+#new-question-input:focus {
+    border-color: #b56a00;
+}
+
+/* 追加ボタン */
+#add-question-btn {
+    width: 80px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    border-radius: 8px;
+    border: none;
+
+    background: linear-gradient(#ffd36a, #ffb800);
+    color: #5a2e00;
+
+    box-shadow:
+        0 3px 0 #b56a00,
+        0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+#add-question-btn:active {
+    transform: translateY(3px);
+    box-shadow:
+        0 0 0 #b56a00,
+        0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* ==============================
+   戻るボタン
+============================== */
+
+.screen>button {
+    width: 200px;
+    max-width: 80vw;
+
+    padding: 14px 0;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    border-radius: 10px;
+    border: none;
+
+    background: linear-gradient(#ffd36a, #ffb800);
+    color: #5a2e00;
+
+    box-shadow:
+        0 4px 0 #b56a00,
+        0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+.screen>button:active {
+    transform: translateY(4px);
+    box-shadow:
+        0 0 0 #b56a00,
+        0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* ==============================
+   縦が短い端末対策
+============================== */
+
+@media (max-height: 650px) {
+
+    .title {
+        font-size: 22px;
+    }
+
+    .question-list {
+        max-height: 40vh;
+    }
+
+    .question-item {
+        font-size: 14px;
+    }
+}

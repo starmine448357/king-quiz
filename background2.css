@@ -1,0 +1,13 @@
+
+.has-bg::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background-image: url("./background2.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    z-index: -1;
+}

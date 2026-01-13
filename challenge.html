@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>挑戦する | 〇〇王</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./background2.css">
+  <link rel="stylesheet" href="./challenge.css">
+</head>
+
+<body class="has-bg">
+
+  <!-- 王選択画面 -->
+  <div id="select-screen" class="screen">
+    <h2>挑戦する相手を選んでください</h2>
+    <div id="king-list" class="buttons"></div>
+  </div>
+
+  <!-- クイズ画面 -->
+  <div id="quiz-screen" class="screen" style="display:none;">
+    <h2 id="quiz-title"></h2>
+    <p id="quiz-question"></p>
+    <button id="show-answer-btn">回答を見る</button>
+  </div>
+
+  <!-- 答え表示画面 -->
+  <div id="answer-screen" class="screen" style="display:none;">
+    <h2>答え</h2>
+    <p id="quiz-answer"></p>
+    <button id="next-btn">次へ</button>
+  </div>
+
+  <!-- 終了画面 -->
+  <div id="end-screen" class="screen" style="display:none;">
+    <h2 id="end-title"></h2>
+    <p>どれだけ解けたかな？</p>
+    <button onclick="location.href='index.html'">
+      タイトルに戻る
+    </button>
+  </div>
+
+  <script src="challenge.js"></script>
+</body>
+</html>
