@@ -2,13 +2,13 @@
    回答画面専用
 ============================== */
 
-/* 画面全体を中央寄せ */
+/* 画面全体 */
 #name-screen,
 #question-screen {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+
     margin-top: 20vh;
     text-align: center;
     color: #222;
@@ -82,13 +82,20 @@
     min-width: 32px;
 }
 
-/* メインボタン */
-#save-name-btn,
-#next-question-btn {
-    margin-top: 16px;
+/* ==============================
+   ボタン共通（横並び）
+============================== */
 
-    width: 200px;
-    max-width: 80vw;
+.answer-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+/* ボタンデザイン統一 */
+.answer-btn {
+    width: 140px;
+    max-width: 40vw;
 
     padding: 14px 0;
 
@@ -101,13 +108,21 @@
     background: linear-gradient(#ffd36a, #ffb800);
     color: #5a2e00;
 
-    box-shadow: 0 4px 0 #b56a00,
+    box-shadow:
+        0 4px 0 #b56a00,
         0 6px 14px rgba(0, 0, 0, 0.3);
+
+    cursor: pointer;
 }
 
-#save-name-btn:active,
-#next-question-btn:active {
+.answer-btn:active {
     transform: translateY(4px);
-    box-shadow: 0 0 0 #b56a00,
+    box-shadow:
+        0 0 0 #b56a00,
         0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* 戻るボタン（色は同じ・役割だけ分ける） */
+.back-btn {
+    opacity: 0.9;
 }

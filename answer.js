@@ -21,15 +21,16 @@ const questionCountText = document.getElementById('question-count');
 // 状態
 // ==============================
 let currentIndex = 0;
-const answers = [];
 let nickname = '';
+let shuffledQuestions = [];
 
-let questionCount = 10;           // 初期値
+const answers = [];
+const answerHistory = [];
+
+let questionCount = 10;
 const MIN_COUNT = 5;
 const STEP = 5;
 const MAX_COUNT = questions.length;
-
-let shuffledQuestions = [];
 
 // ==============================
 // シャッフル
@@ -66,7 +67,12 @@ saveNameBtn.addEventListener('click', () => {
     return;
   }
 
-  // 出題数分だけランダム取得
+  // 状態リセット
+  currentIndex = 0;
+  answers.length = 0;
+  answerHistory.length = 0;
+  answerInput.value = '';
+
   const shuffled = shuffle([...questions]);
   shuffledQuestions = shuffled.slice(0, questionCount);
 
@@ -96,7 +102,9 @@ nextBtn.addEventListener('click', () => {
     return;
   }
 
-  answers.push(answer);
+  answers[currentIndex] = answer;
+  answerHistory[currentIndex] = answer;
+
   answerInput.value = '';
   currentIndex++;
 
@@ -109,16 +117,46 @@ nextBtn.addEventListener('click', () => {
 });
 
 // ==============================
-// 〇〇王データを保存
+// 1つ前に戻る（質問画面専用）
+// ==============================
+function goPrev() {
+  // 1問目 → 名前入力画面へ
+  if (currentIndex === 0) {
+    questionScreen.style.display = 'none';
+    nameScreen.style.display = 'flex';
+    return;
+  }
+
+  // 2問目以降 → 前の質問へ
+  currentIndex--;
+  answerInput.value = answerHistory[currentIndex] || '';
+  showQuestion();
+}
+
+// ==============================
+// タイトルへ戻る（完全に戻る）
+// ==============================
+function goTitle() {
+  // 状態をすべて破棄
+  currentIndex = 0;
+  answers.length = 0;
+  answerHistory.length = 0;
+  answerInput.value = '';
+
+  location.href = 'index.html';
+}
+
+// ==============================
+// 〇〇王データ保存
 // ==============================
 function saveKingData() {
   const stored = localStorage.getItem('kings');
   const kings = stored ? JSON.parse(stored) : [];
 
   const kingData = {
-    nickname: nickname,
+    nickname,
     questions: shuffledQuestions.map(q => q.text),
-    answers: answers
+    answers
   };
 
   kings.push(kingData);

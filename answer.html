@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -9,27 +10,43 @@
 </head>
 <body class="has-bg">
 
-<div id="name-screen" class="screen">
-  <h2>あなたの呼び名は？</h2>
-  <input id="nickname-input" type="text" placeholder="例：たろう">
+  <!-- 名前入力画面 -->
+  <div id="name-screen" class="screen">
+    <h2>あなたの呼び名は？</h2>
+    <input id="nickname-input" type="text" placeholder="例：たろう">
 
-  <h3>何問やる？</h3>
+    <h3>何問やる？</h3>
 
-  <div class="counter">
-    <button id="decrease-btn">-</button>
-    <span id="question-count">10</span>
-    <button id="increase-btn">+</button>
+    <div class="counter">
+      <button id="decrease-btn">-</button>
+      <span id="question-count">10</span>
+      <button id="increase-btn">+</button>
+    </div>
+
+    <!-- ボタンエリア -->
+    <div class="answer-buttons">
+      <button class="answer-btn back-btn" onclick="goTitle()">戻る</button>
+      <button class="answer-btn" id="save-name-btn">スタート</button>
+    </div>
   </div>
-
-  <button id="save-name-btn">スタート</button>
-</div>
 
   <!-- 質問画面 -->
   <div id="question-screen" class="screen" style="display:none;">
     <h2 id="question-title"></h2>
     <p id="question-text"></p>
     <input id="answer-input" type="text" placeholder="答えを入力">
-    <button id="next-question-btn">次へ</button>
+
+    <!-- ボタンエリア -->
+    <div class="answer-buttons">
+  <button
+    class="answer-btn back-btn"
+    onclick="goPrev()"
+    id="back-prev-btn"
+  >
+    戻る
+  </button>
+      <button class="answer-btn" id="next-question-btn">次へ</button>
+    </div>
   </div>
 
   <script src="questions.js"></script>
