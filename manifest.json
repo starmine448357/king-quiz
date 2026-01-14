@@ -1,7 +1,9 @@
 {
-  "name": "〇〇王",
-  "short_name": "〇〇王",
-  "start_url": "./index.html",
+  "id": "/king-quiz/",
+  "name": "〇〇王！！あなたの「わかりて王」は誰だ！クイズ＆お題ゲームアプリ",
+  "short_name": "〇〇王！！",
+  "start_url": "/king-quiz/",
+  "scope": "/king-quiz/",
   "display": "standalone",
   "background_color": "#f5f5f5",
   "theme_color": "#ffb800",
