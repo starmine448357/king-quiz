@@ -19,8 +19,9 @@ let correctCount = 0;
 // Canvas初期化
 // ==============================
 function resizeCanvas() {
+  const headerHeight = 60; // フリップヘッダー高さ
   canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight - 60;
+  canvas.height = window.innerHeight - headerHeight;
 
   ctx.lineWidth = 4;
   ctx.lineCap = 'round';
@@ -31,25 +32,39 @@ resizeCanvas();
 window.addEventListener('resize', resizeCanvas);
 
 // ==============================
-// 描画（タッチ専用）
+// 座標取得（PC・スマホ共通）
 // ==============================
-canvas.addEventListener('touchstart', e => {
+function getPos(e) {
+  const rect = canvas.getBoundingClientRect();
+  return {
+    x: e.clientX - rect.left,
+    y: e.clientY - rect.top
+  };
+}
+
+// ==============================
+// 描画（PC / スマホ / ペン対応）
+// ==============================
+canvas.addEventListener('pointerdown', e => {
   drawing = true;
-  const t = e.touches[0];
+  const { x, y } = getPos(e);
   ctx.beginPath();
-  ctx.moveTo(t.clientX, t.clientY - 60);
+  ctx.moveTo(x, y);
 });
 
-canvas.addEventListener('touchmove', e => {
+canvas.addEventListener('pointermove', e => {
   if (!drawing) return;
-  e.preventDefault();
-
-  const t = e.touches[0];
-  ctx.lineTo(t.clientX, t.clientY - 60);
+  const { x, y } = getPos(e);
+  ctx.lineTo(x, y);
   ctx.stroke();
 });
 
-canvas.addEventListener('touchend', () => {
+canvas.addEventListener('pointerup', () => {
+  drawing = false;
+  ctx.closePath();
+});
+
+canvas.addEventListener('pointerleave', () => {
   drawing = false;
 });
 
