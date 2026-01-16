@@ -2,18 +2,21 @@
    全画面背景
 ============================== */
 
-.has-bg::before {
+body.has-bg {
+    position: relative;
+    z-index: 0;
+}
+
+body.has-bg::before {
     content: "";
     position: fixed;
     inset: 0;
 
-    background-image: url("./background2.png");
+    background-image: url("background2.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 
     z-index: -1;
-    /* ← 背面に送る */
     pointer-events: none;
-    /* ← クリックを貫通させる */
 }

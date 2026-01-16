@@ -14,39 +14,76 @@
   <meta name="theme-color" content="#ffb800">
   <meta name="google-site-verification" content="Yjv7wIAl-VAmxEBKzzvVtm4ZtZbHVDoEqNb44Zl8UjE" />
 </head>
+
 <body>
 
+  <!-- 広告削除ボタン（スマホ専用） -->
+  <button class="remove-ads-btn">
+    広告OFF ￥100
+  </button>
 
-<div class="screen top-screen">
+  <div class="screen top-screen">
 
-  <!-- タイトル -->
-  <div class="title-logo">
-    <img src="tittlelogo.png" alt="〇〇王">
+    <!-- タイトル -->
+    <div class="title-logo">
+      <img src="tittlelogo.png" alt="〇〇王">
+    </div>
+
+    <!-- 王様エリア -->
+    <div class="king-wrapper">
+      <img src="kingmain.png" alt="〇〇王" class="king-image">
+
+      <!-- メニュー -->
+      <div class="flip-area">
+        <button onclick="location.href='answer.html'">回答する</button>
+        <button onclick="location.href='challenge.html'">〇〇王に挑む</button>
+        <button onclick="location.href='flip.html'">フリップ</button>
+        <button onclick="location.href='question-box.html'">質問箱</button>
+      </div>
+    </div>
+
   </div>
 
-  <!-- 王様エリア -->
-  <div class="king-wrapper">
-    <img src="kingmain.png" alt="〇〇王" class="king-image">
+  <!-- SEO用テキスト -->
+  <section class="seo-text">
+    <h1>〇〇王とは？</h1>
+    <p>
+      〇〇王は、友達同士で遊べるクイズ・お題ゲームアプリです。
+      回答する人と挑戦する人に分かれて、誰が一番〇〇王にふさわしいかを競います。
+      スマートフォン対応で、インストール不要・無料で遊べます。
+    </p>
+  </section>
 
-    <!-- メニュー -->
-    <div class="flip-area">
-      <button onclick="location.href='answer.html'">回答する</button>
-      <button onclick="location.href='challenge.html'">〇〇王に挑む</button>
-      <button onclick="location.href='flip.html'">フリップ</button>
-      <button onclick="location.href='question-box.html'">質問箱</button>
+  <!-- 起動時広告 -->
+  <div id="startup-ad" class="startup-ad">
+    <div class="ad-box">
+      <p class="ad-label">広告</p>
+      <div class="ad-content">
+        <p>ここに広告が表示されます</p>
+      </div>
+      <button class="ad-close">×</button>
     </div>
   </div>
 
-</div>
+  <!-- 起動時広告制御 -->
+  <script>
+    const ad = document.getElementById('startup-ad');
+    const closeBtn = document.querySelector('.ad-close');
 
-<section class="seo-text">
-  <h1>〇〇王とは？</h1>
-  <p>
-    〇〇王は、友達同士で遊べるクイズ・お題ゲームアプリです。
-    回答する人と挑戦する人に分かれて、誰が一番〇〇王にふさわしいかを競います。
-    スマートフォン対応で、インストール不要・無料で遊べます。
-  </p>
-</section>
+    const adsRemoved = localStorage.getItem('adsRemoved');
+
+    if (!adsRemoved) {
+      ad.classList.add('active');
+    }
+
+    closeBtn.addEventListener('click', () => {
+      ad.classList.remove('active');
+    });
+
+    setTimeout(() => {
+      ad.classList.remove('active');
+    }, 3000);
+  </script>
 
 </body>
 </html>
