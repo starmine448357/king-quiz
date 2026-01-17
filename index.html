@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>〇〇王｜友達と遊べるクイズ＆お題ゲームアプリ</title>
+  <title>〇〇王!!｜友達と遊べるクイズ＆お題ゲームアプリ</title>
 
   <meta name="description"
         content="〇〇王は、友達同士で遊べるクイズ・お題ゲームアプリです。回答する人と挑戦する人に分かれて遊べます。スマホ対応・無料">
@@ -54,36 +54,8 @@
     </p>
   </section>
 
-  <!-- 起動時広告 -->
-  <div id="startup-ad" class="startup-ad">
-    <div class="ad-box">
-      <p class="ad-label">広告</p>
-      <div class="ad-content">
-        <p>ここに広告が表示されます</p>
-      </div>
-      <button class="ad-close">×</button>
-    </div>
-  </div>
 
   <!-- 起動時広告制御 -->
-  <script>
-    const ad = document.getElementById('startup-ad');
-    const closeBtn = document.querySelector('.ad-close');
-
-    const adsRemoved = localStorage.getItem('adsRemoved');
-
-    if (!adsRemoved) {
-      ad.classList.add('active');
-    }
-
-    closeBtn.addEventListener('click', () => {
-      ad.classList.remove('active');
-    });
-
-    setTimeout(() => {
-      ad.classList.remove('active');
-    }, 3000);
-  </script>
 
 </body>
 </html>
